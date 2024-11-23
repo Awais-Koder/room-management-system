@@ -68,4 +68,11 @@ class RoomController extends Controller
         $data->delete();
         return redirect()->back()->with('success' , 'Room Deleted Successfully.');
     }
+    //
+    public function history($id)
+    {
+        $data = Room::with(['entries.user' , 'positions'])->findOrFail($id);
+        // $data = UserRoomEntry::with(['user.positions' , 'room'])->latest()->get();
+        return view('entry.history' , compact('data'));
+    }
 }

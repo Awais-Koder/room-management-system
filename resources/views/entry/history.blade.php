@@ -13,21 +13,21 @@
                         <th>#</th>
                         <th scope="col">Employee Name</th>
                         <th scope="col">Date</th>
-                        <th scope="col">Job Role(s)</th>
+                        <th scope="col">Position Role(s)</th>
                         <th scope="col">Phone Number</th>
                         <th scope="col">Entry Success</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($data as $key => $history)
-                    <tr>
-                        <td>{{$key+=1}}</td>
-                        <td>{{$history->user->name}}</td>
-                        <td>{{$history->created_at->format('d/M/Y')}}</td>
-                        <td>{{$history->user->positions->isNotEmpty() ? $history->user->positions()->pluck('name')->implode(', ') : "N/A"}}</td>
-                        <td>{{$history->user->phone_number}}</td>
-                        <td>{!! $history->successful ? '<span class="badge badge-sm bg-success">True</span>' : '<span class="badge badge-sm bg-danger">False</span>' !!}</td>
-                    </tr>
+                    @foreach ($data->entries as $key => $entry)
+                        <tr>
+                            <td>{{$key += 1}}</td>
+                            <td>{{$entry->user->name}}</td>
+                            <td>{{$entry->created_at->format('d-M-Y')}}</td>
+                            <td>{{$data->positions->pluck('name')->implode(', ')}}</td>
+                            <td>{{$entry->user->phone_number}}</td>
+                            <td>{!! $entry->successful ? '<span class="badge badge-sm bg-success">true<span/>' : '<span class="badge badge-sm bg-danger">false<span/>' !!}</td>
+                        </tr>
                     @endforeach
                 </tbody>
             </table>

@@ -6,7 +6,7 @@
 @section('content')
     <div class="container bg-white">
         <div class="mt-1 py-3 d-flex justify-content-between align-items-center">
-            <h2 class="mt-2">Jobs</h2>
+            <h2 class="mt-2">Rooms</h2>
             @if ($isAdmin)
                 <a href="{{ route('room.create') }}" class="btn btn-primary btn-sm"><b>+ New</b></a>
             @endif
@@ -17,7 +17,7 @@
                     <tr>
                         <th>#</th>
                         <th scope="col">Room Name</th>
-                        <th scope="col">Jobs</th>
+                        <th scope="col">Positions</th>
                         <th scope="col">Actions</th>
                     </tr>
                 </thead>
@@ -37,6 +37,9 @@
                                     </a>
                                     <a href="{{route('room.edit' , $room->id )}}" class="btn btn-sm btn-secondary">
                                         <i class="fas fa-pencil"></i>
+                                    </a>
+                                    <a href="{{route('room.entry.history' , $room->id )}}" class="btn btn-sm btn-primary">
+                                        <i class="fas fa-arrow-right"></i>
                                     </a>
                                 @endif
                                 <a href="{{route('room.show' , $room->id )}}" class="btn btn-sm btn-warning text-white"><i

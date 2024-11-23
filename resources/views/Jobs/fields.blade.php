@@ -1,6 +1,6 @@
 <div class="row">
     <div class="mb-3 col-md-6">
-        <label for="name" class="form-label">Job Name <sup class="text-danger">*</sup></label>
+        <label for="name" class="form-label">Position Name <sup class="text-danger">*</sup></label>
         <input type="text" class="form-control" name="name" id="name" aria-describedby="nameHelpId"
             placeholder="Enter Name" value="{{ $data['name'] ?? old('name') }}" />
         <strong id="nameHelpId" class="form-text text-danger">

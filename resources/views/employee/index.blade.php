@@ -18,7 +18,7 @@
                     <tr>
                         <th>#</th>
                         <th scope="col">Employee Name</th>
-                        <th scope="col">Job Role(s)</th>
+                        <th scope="col">Position Role(s)</th>
                         <th scope="col">Phone Number</th>
                         <th scope="col">Actions</th>
                     </tr>
@@ -41,7 +41,7 @@
                                         <i class="fas fa-pencil"></i>
                                     </a>
                                     <a href="{{ route('employee.history', $employee->id) }}" class="btn btn-sm btn-primary">
-                                        <i class="fa-solid fa-arrow-rotate-left"></i>
+                                        <i class="fa-solid fa-arrow-right"></i>
                                     </a>
                                 @endif
                                 <a href="{{ route('employee.show', $employee->id) }}" class="btn btn-sm btn-warning">

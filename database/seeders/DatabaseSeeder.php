@@ -32,8 +32,8 @@ class DatabaseSeeder extends Seeder
         // Create Users
         User::factory()->count(10)->create();
         Position::factory()->count(5)->create();
-        Room::factory()->count(7)->create();
-        UserRoomEntry::factory()->count(5)->create();
+        Room::factory()->count(5)->create();
+        // UserRoomEntry::factory()->count(5)->create();
 
 
         // assigning pivot tables
@@ -46,6 +46,23 @@ class DatabaseSeeder extends Seeder
         });
         $rooms->each(function ($room) use ($positions) {
             $room->positions()->attach($positions->random(2));  // Assign random positions to the room
+        });
+        $users->each(function ($user) use ($rooms) {
+            $userPositions = $user->positions->pluck('id')->toArray(); // Get user's position IDs
+
+            $rooms->each(function ($room) use ($user, $userPositions) {
+                $roomPositions = $room->positions->pluck('id')->toArray(); // Get room's position IDs
+
+                // Check if there's a matching position
+                $hasAccess = !empty(array_intersect($userPositions, $roomPositions));
+
+                // Create UserRoomEntry
+                UserRoomEntry::create([
+                    'user_id' => $user->id,
+                    'room_id' => $room->id,
+                    'successful' => $hasAccess,
+                ]);
+            });
         });
 
     }

@@ -10,9 +10,7 @@ use App\Http\Controllers\RoomController;
 use App\Http\Middleware\AdminMiddleware;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return redirect()->route('dashboard');
-});
+Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::controller(HomeController::class)->group(function () {
     Route::get('/dashboard', 'index')->name(name: 'dashboard');
 });
@@ -31,30 +29,31 @@ Route::middleware('auth')->group(function () {
     });
     // job roles
     Route::middleware('admin')->controller(JobsController::class)->group(function () {
-        Route::get('/jobs', 'index')->name(name: 'jobs')->withoutMiddleware('admin');
-        Route::get('/job/create', 'create')->name(name: 'job.create');
-        Route::get('/job/create', 'create')->name(name: 'job.create');
-        Route::post('/job/store', 'store')->name(name: 'job.store');
-        Route::get('/job/edit/{id}', 'edit')->name(name: 'job.edit');
-        Route::post('/job/update/{id}', 'update')->name(name: 'job.update');
-        Route::get('/job/delete/{id}', 'delete')->name(name: 'job.delete');
-        Route::get('/job/show/{id}', 'show')->name(name: 'job.show')->withoutMiddleware('admin');
+        Route::get('/positions', 'index')->name(name: 'jobs')->withoutMiddleware('admin');
+        Route::get('/position/create', 'create')->name(name: 'job.create');
+        Route::get('/position/create', 'create')->name(name: 'job.create');
+        Route::post('/position/store', 'store')->name(name: 'job.store');
+        Route::get('/position/edit/{id}', 'edit')->name(name: 'job.edit');
+        Route::post('/position/update/{id}', 'update')->name(name: 'job.update');
+        Route::get('/position/delete/{id}', 'delete')->name(name: 'job.delete');
+        Route::get('/position/show/{id}', 'show')->name(name: 'job.show')->withoutMiddleware('admin');
     });
 
     Route::middleware('admin')->controller(RoomController::class)->group(function () {
-        Route::get('rooms', 'index')->name('rooms');
+        Route::get('rooms', 'index')->name('rooms')->withoutMiddleware('admin');
         Route::get('room/create', 'create')->name('room.create');
         Route::post('room/store', 'store')->name('room.store');
         Route::get('room/edit/{id}', 'edit')->name('room.edit');
         Route::post('room/update/{id}', 'update')->name('room.update');
-        Route::get('room/show/{id}', 'show')->name('room.show');
+        Route::get('room/show/{id}', 'show')->name('room.show')->withoutMiddleware('admin');
         Route::get('room/delete/{id}', 'delete')->name('room.delete');
+        Route::get('room/entry/history/{id}', 'history')->name('room.entry.history');
     });
 
     Route::controller(EntrySimulationController::class)->group(function () {
         Route::get('entries', 'index')->name('entry.simulation');
         Route::post('entry/check/access', 'checkAccess')->name('entry.check.access');
-        Route::get('entry/history', 'roomHistory')->name('room.entry.history');
+
     });
 
     Route::controller(MyPermissionController::class)->group(function () {

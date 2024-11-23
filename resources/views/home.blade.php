@@ -25,7 +25,7 @@
             <div class="col-md-4 mb-3">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">No. Of Jobs</h5>
+                        <h5 class="card-title">No. Of Positions</h5>
                         <strong class="badge badge-lg bg-warning">{{ $jobs }}</strong>
                     </div>
                 </div>

@@ -3,7 +3,7 @@
 @section('content')
     <div class="container bg-white pb-3">
         <div class="mt-1 py-3 d-flex justify-content-between align-items-center">
-            <h2 class="mt-2">Update Job</h2>
+            <h2 class="mt-2">Update Position</h2>
         </div>
         <form action="{{ route('job.update' , $data->id) }}" method="post">
             @csrf

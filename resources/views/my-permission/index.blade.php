@@ -11,7 +11,7 @@
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th scope="col">Job Role</th>
+                        <th scope="col">Position Role</th>
                         <th scope="col">Room Image</th>
                         <th scope="col">Room Name</th>
                         <th scope="col">Description</th>

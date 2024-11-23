@@ -19,7 +19,7 @@
             <div class="col-md-6 mb-3">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Jobs</h5>
+                        <h5 class="card-title">Positions</h5>
                         <p class="card-text">{{
                         $data->positions->pluck('name')->implode(', ')
                         }}</p>

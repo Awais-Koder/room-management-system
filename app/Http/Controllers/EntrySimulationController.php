@@ -30,9 +30,4 @@ class EntrySimulationController extends Controller
         ]);
         return back()->with('success' , $message);
     }
-    public function roomHistory()
-    {
-        $data = UserRoomEntry::with(['user.positions' , 'room'])->latest()->get();
-        return view('entry.history' , compact('data'));
-    }
 }

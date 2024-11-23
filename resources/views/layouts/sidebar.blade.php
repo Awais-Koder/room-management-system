@@ -17,7 +17,7 @@
             <li class="nav-item border-bottom">
                 <a class="nav-link" href="{{ route('jobs') }}">
                     <i class="fa-solid fa-person-digging"></i>
-                    <span class="mx-2">Jobs</span>
+                    <span class="mx-2">Positions</span>
                 </a>
             </li>
             <li class="nav-item border-bottom">
@@ -32,12 +32,12 @@
                     <span class="mx-2">Entry Simulation</span>
                 </a>
             </li>
-            <li class="nav-item border-bottom">
+            {{-- <li class="nav-item border-bottom">
                 <a class="nav-link" href="{{ route('room.entry.history') }}">
                     <i class="fa-solid fa-arrow-rotate-left"></i>
                     <span class="mx-2">Room Entry History</span>
                 </a>
-            </li>
+            </li> --}}
             <li class="nav-item border-bottom">
                 <a class="nav-link" href="{{ route('my.permission') }}">
                     <i class="fa-solid fa-lock"></i>

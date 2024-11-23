@@ -6,7 +6,7 @@
 @section('content')
     <div class="container bg-white">
         <div class="mt-1 py-3 d-flex justify-content-between align-items-center">
-            <h2 class="mt-2">Jobs</h2>
+            <h2 class="mt-2">Positions</h2>
             @if ($isAdmin)
                 <a href="{{route('job.create')}}" class="btn btn-primary btn-sm"><b>+ New</b></a>
             @endif
@@ -16,7 +16,7 @@
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th scope="col">Job Name</th>
+                        <th scope="col">Position Name</th>
                         <th scope="col">No. Of Employees</th>
                         <th scope="col">No. Of Rooms</th>
                         <th scope="col">Actions</th>

@@ -28,8 +28,6 @@ class EmployeeUpdateRequest extends FormRequest
                 'email',
                 Rule::unique('users')->ignore($this->id), // Ignore the current user ID
             ],
-            'phone_number' => 'required',
-            'card_number' => 'required|min:16',
             'password' => 'nullable|confirmed|min:8',
         ];
     }

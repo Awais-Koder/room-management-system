@@ -1,8 +1,8 @@
 <div class="row">
     <div class="mb-3 col-md-6">
-        <label for="name" class="form-label">Job Role</label>
+        <label for="name" class="form-label">Position Role</label>
         <select name="position_id[]" id="" class="form-control" multiple>
-            <option selected disabled>-- select a job role --</option>
+            <option selected disabled>-- select a position role --</option>
             @foreach (App\Services\DefaultService::getPositions() as $position)
                 <option value="{{ $position->id }}"
                     {{ isset($userPositions) && in_array($position->id, $userPositions) ? 'selected' : '' }}>
@@ -23,7 +23,10 @@
     </div>
 
     <div class="mb-3 col-md-6">
-        <label for="phone_number" class="form-label">Phone Number <sup class="text-danger">*</sup></label>
+        <label for="phone_number" class="form-label">Phone Number @isset($data)
+            @else
+                <sup class="text-danger">*</sup>
+            @endisset</label>
         <input type="text" class="form-control" name="phone_number" id="phone_number"
             aria-describedby="phone_numberHelpId" placeholder="Enter Phone number"
             value="{{ $data['phone_number'] ?? old('phone_number') }}" />
@@ -35,7 +38,10 @@
     </div>
 
     <div class="mb-3 col-md-6">
-        <label for="card_number" class="form-label">Card Number <sup class="text-danger">*</sup></label>
+        <label for="card_number" class="form-label">Card Number @isset($data)
+            @else
+                <sup class="text-danger">*</sup>
+            @endisset</label>
         <input type="text" class="form-control" name="card_number" id="card_number"
             aria-describedby="card_numberHelpId" placeholder="Enter Card Number"
             value="{{ $data['card_number'] ?? old('card_number') }}" />
