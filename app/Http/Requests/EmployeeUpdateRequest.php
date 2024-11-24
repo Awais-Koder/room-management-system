@@ -29,7 +29,7 @@ class EmployeeUpdateRequest extends FormRequest
                 Rule::unique('users')->ignore($this->id), // Ignore the current user ID
             ],
             'card_number' => [
-                'nullable',
+                'required',
                 'string',
                 'min:16',
                 'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{16,}$/',

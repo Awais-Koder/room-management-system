@@ -30,10 +30,7 @@
     </div>
 
     <div class="mb-3 col-md-6">
-        <label for="card_number" class="form-label">Card Number @isset($data)
-            @else
-                <sup class="text-danger">*</sup>
-            @endisset</label>
+        <label for="card_number" class="form-label">Card Number <sup class="text-danger">*</sup></label>
         <input type="text" class="form-control" name="card_number" id="card_number"
             aria-describedby="card_numberHelpId" placeholder="Enter Card Number"
             value="{{ $data['card_number'] ?? old('card_number') }}" />
