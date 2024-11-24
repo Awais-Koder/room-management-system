@@ -10,14 +10,14 @@ class DefaultService
 {
     public static function getPositions()
     {
-        return Position::all();
+        return Position::latest()->get();
     }
     public static function getRooms()
     {
-        return Room::all();
+        return Room::latest()->all();
     }
     public static function getEmployees()
     {
-        return User::where('card_number' , '!=' , null)->get();
+        return User::where('card_number' , '!=' , null)->latest()->get();
     }
 }

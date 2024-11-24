@@ -11,7 +11,7 @@ class JobsController extends Controller
 {
     public function index()
     {
-        $data = Position::withCount(['users', 'rooms'])->get();
+        $data = Position::withCount(['users', 'rooms'])->latest()->get();
         return view('Jobs.index', compact('data'));
     }
     public function create()

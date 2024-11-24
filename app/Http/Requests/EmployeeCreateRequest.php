@@ -24,9 +24,20 @@ class EmployeeCreateRequest extends FormRequest
         return [
             'name' => 'required',
             'email' => 'required|email|unique:users',
-            'phone_number' => 'required',
-            'card_number' => 'required|min:16',
+            'card_number' => [
+                'required',
+                'string',
+                'min:16',
+                'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{16,}$/',
+            ],
             'password' => 'required|min:8|confirmed',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'card_number.regex' => 'The password must be at least 16 characters long, contain at least one uppercase letter, one lowercase letter, and one number, and must not include special characters.',
         ];
     }
 }

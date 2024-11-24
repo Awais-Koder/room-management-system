@@ -23,18 +23,10 @@
     </div>
 
     <div class="mb-3 col-md-6">
-        <label for="phone_number" class="form-label">Phone Number @isset($data)
-            @else
-                <sup class="text-danger">*</sup>
-            @endisset</label>
+        <label for="phone_number" class="form-label">Phone Number</label>
         <input type="text" class="form-control" name="phone_number" id="phone_number"
             aria-describedby="phone_numberHelpId" placeholder="Enter Phone number"
             value="{{ $data['phone_number'] ?? old('phone_number') }}" />
-        <strong id="phone_numberHelpId" class="form-text text-danger">
-            @error('phone_number')
-                {{ $message }}
-            @enderror
-        </strong>
     </div>
 
     <div class="mb-3 col-md-6">

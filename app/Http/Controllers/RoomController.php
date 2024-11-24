@@ -17,7 +17,7 @@ class RoomController extends Controller
     }
     public function index()
     {
-        $data = $this->model::with('positions')->get();
+        $data = $this->model::with('positions')->latest()->get();
         return view('room.index', compact('data'));
     }
     //

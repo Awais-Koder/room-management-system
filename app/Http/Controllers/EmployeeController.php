@@ -13,7 +13,7 @@ class EmployeeController extends Controller
 {
     public function index()
     {
-        $employees = User::where('admin', false)->with('positions')->get();
+        $employees = User::where('admin', false)->with('positions')->latest()->get();
         return view('employee.index', compact('employees'));
     }
     public function create()
